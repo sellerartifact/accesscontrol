@@ -1,4 +1,6 @@
-import { Access, IAccessInfo, Query, IQueryInfo, Permission } from './core';
+import { Access, IAccessInfo, Query, IQueryInfo, Permission, AccessControlError } from './core';
+import { Action, Possession } from './enums';
+import { Grants } from './utils';
 /**
  *  @classdesc
  *  AccessControl class that implements RBAC (Role-Based Access Control) basics
@@ -68,7 +70,7 @@ import { Access, IAccessInfo, Query, IQueryInfo, Permission } from './core';
  *  // since these permissions have common resources, there is an alternative way:
  *  ac.grant('admin')
  *      .resource('profile').createAny().readAny(null, ["*", "!password"])
- *      .resource('video').readAny()..deleteAny();
+ *      .resource('video').readAny().deleteAny();
  *
  *  ac.grant('user')
  *      .readOwn('profile', ["uid", "email", "address.*", "account.*", "!account.roles"])
@@ -111,7 +113,7 @@ declare class AccessControl {
      *  @param {Object|Array} [grants] - A list containing the access grant
      *      definitions. See the structure of this object in the examples.
      */
-    constructor(grants?: any);
+    constructor(grants?: Grants);
     /**
      *  Specifies whether the underlying grants object is frozen and all
      *  functionality for modifying it is disabled.
@@ -163,7 +165,7 @@ declare class AccessControl {
      *    }
      *  }
      */
-    getGrants(): any;
+    getGrants(): Grants;
     /**
      *  Sets all access grants at once, from an object or array. Note that this
      *  will reset the object and remove all previous grants.
@@ -177,7 +179,7 @@ declare class AccessControl {
      *  @throws {AccessControlError} - If called after `.lock()` is called or if
      *  passed grants object fails inspection.
      */
-    setGrants(grantsObject: any): AccessControl;
+    setGrants(grantsObject: Grants): AccessControl;
     /**
      *  Resets the internal grants object and removes all previous grants.
      *  @chainable
@@ -504,24 +506,24 @@ declare class AccessControl {
     /**
      *  @private
      */
-    _removePermission(resources: string | string[], roles?: string | string[], actionPossession?: string): void;
+    _removePermission(resources: string | string[], roles?: string | string[], actionPossession?: Action): void;
     /**
      *  Documented separately in enums/Action
      *  @private
      */
-    static readonly Action: any;
+    static readonly Action: typeof Action;
     /**
      *  Documented separately in enums/Possession
      *  @private
      */
-    static readonly Possession: any;
+    static readonly Possession: typeof Possession;
     /**
      *  Documented separately in AccessControlError
      *  @private
      */
-    static readonly Error: any;
+    static readonly Error: typeof AccessControlError;
     /**
-     *  A utility method for deep cloning the given data object(s) while
+     *  A utility method for deep cloning the given data object while
      *  filtering its properties by the given attribute (glob) notations.
      *  Includes all matched properties and removes the rest.
      *
@@ -529,8 +531,7 @@ declare class AccessControl {
      *  with enumerable properties. It will not deal with preserving the
      *  prototype-chain of the given object.
      *
-     *  @param {Object|Array} data - A single or array of data objects
-     *      to be filtered.
+     *  @param {Object} data - A single data objects to be filtered.
      *  @param {Array|String} attributes - The attribute glob notation(s)
      *      to be processed. You can use wildcard stars (*) and negate
      *      the notation by prepending a bang (!). A negated notation
@@ -543,8 +544,7 @@ declare class AccessControl {
      *      Passing no parameters or passing an empty string (`""` or `[""]`)
      *      will empty the source object.
      *
-     *  @returns {Object|Array} - Returns the filtered data object or array
-     *      of data objects.
+     *  @returns {Object} - Returns the filtered data object.
      *
      *  @example
      *  var assets = { notebook: "Mac", car: { brand: "Ford", model: "Mustang", year: 1970, color: "red" } };
@@ -558,7 +558,33 @@ declare class AccessControl {
      *  filtered = AccessControl.filter(assets); // or AccessControl.filter(assets, "");
      *  console.log(assets); // {}
      */
-    static filter(data: any, attributes: string[]): any;
+    static filter<T>(data: T, attributes: string[]): Partial<T>;
+    /**
+     *  A utility method for deep cloning the given data objects while
+     *  filtering its properties by the given attribute (glob) notations.
+     *  Includes all matched properties and removes the rest.
+     *
+     *  Note that this should be used to manipulate data / arbitrary objects
+     *  with enumerable properties. It will not deal with preserving the
+     *  prototype-chain of the given object.
+     *
+     *  @param {Array} data - An array of data objects
+     *      to be filtered.
+     *  @param {Array|String} attributes - The attribute glob notation(s)
+     *      to be processed. You can use wildcard stars (*) and negate
+     *      the notation by prepending a bang (!). A negated notation
+     *      will be excluded. Order of the globs do not matter, they will
+     *      be logically sorted. Loose globs will be processed first and
+     *      verbose globs or normal notations will be processed last.
+     *      e.g. `[ "car.model", "*", "!car.*" ]`
+     *      will be sorted as:
+     *      `[ "*", "!car.*", "car.model" ]`.
+     *      Passing no parameters or passing an empty string (`""` or `[""]`)
+     *      will empty the source object.
+     *
+     *  @returns {Array} - Returns the filtered array of data objects.
+     */
+    static filter<T>(data: T[], attributes: string[]): Partial<T>[];
     /**
      *  Checks whether the given object is an instance of `AccessControl.Error`.
      *  @name AccessControl.isACError

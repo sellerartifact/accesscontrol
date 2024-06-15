@@ -1,6 +1,6 @@
 import { Access, IAccessInfo, Query, IQueryInfo, Permission, AccessControlError } from './core';
 import { Action, Possession, actions, possessions } from './enums';
-import { utils, ERR_LOCK } from './utils';
+import { utils, ERR_LOCK, RoleItem, Grants } from './utils';
 
 /**
  *  @classdesc
@@ -103,7 +103,7 @@ class AccessControl {
     /**
      *  @private
      */
-    private _grants: any;
+    private _grants: Grants;
 
     /**
      *  @private
@@ -117,7 +117,7 @@ class AccessControl {
      *  @param {Object|Array} [grants] - A list containing the access grant
      *      definitions. See the structure of this object in the examples.
      */
-    constructor(grants?: any) {
+    constructor(grants?: Grants) {
         // explicit undefined is not allowed
         if (arguments.length === 0) grants = {};
         this.setGrants(grants);
@@ -185,7 +185,7 @@ class AccessControl {
      *    }
      *  }
      */
-    getGrants(): any {
+    getGrants(): Grants {
         return this._grants;
     }
 
@@ -202,7 +202,7 @@ class AccessControl {
      *  @throws {AccessControlError} - If called after `.lock()` is called or if
      *  passed grants object fails inspection.
      */
-    setGrants(grantsObject: any): AccessControl {
+    setGrants(grantsObject: Grants): AccessControl {
         if (this.isLocked) throw new AccessControlError(ERR_LOCK);
         this._grants = utils.getInspectedGrants(grantsObject);
         return this;
@@ -252,7 +252,19 @@ class AccessControl {
      *  // underlying grants model is not changed
      */
     lock(): AccessControl {
-        utils.lockAC(this);
+        if (!this._grants || Object.keys(this._grants).length === 0) {
+            throw new AccessControlError('Cannot lock empty or invalid grants model.');
+        }
+
+        let locked = this.isLocked && Object.isFrozen(this._grants);
+        if (!locked) locked = Boolean(utils.deepFreeze(this._grants));
+
+        /* istanbul ignore next */
+        if (!locked) {
+            throw new AccessControlError(`Could not lock grants: ${typeof this._grants}`);
+        }
+
+        this._isLocked = locked;
         return this;
     }
 
@@ -304,7 +316,7 @@ class AccessControl {
             delete this._grants[roleName];
         });
         // also remove these roles from $extend list of each remaining role.
-        utils.eachRole(this._grants, (roleItem: any, roleName: string) => {
+        utils.eachRole(this._grants, (roleItem: RoleItem, roleName: string) => {
             if (Array.isArray(roleItem.$extend)) {
                 roleItem.$extend = utils.subtractArray(roleItem.$extend, rolesToRemove);
             }
@@ -647,7 +659,7 @@ class AccessControl {
     /**
      *  @private
      */
-    _removePermission(resources: string | string[], roles?: string | string[], actionPossession?: string) {
+    _removePermission(resources: string | string[], roles?: string | string[], actionPossession?: Action) {
         resources = utils.toStringArray(resources);
         // resources is set but returns empty array.
         if (resources.length === 0 || !utils.isFilledStringArray(resources)) {
@@ -661,7 +673,7 @@ class AccessControl {
                 throw new AccessControlError(`Invalid role(s): ${JSON.stringify(roles)}`);
             }
         }
-        utils.eachRoleResource(this._grants, (role: string, resource: string, permissions: any) => {
+        utils.eachRoleResource(this._grants, (role: string, resource: string) => {
             if (resources.indexOf(resource) >= 0
                 // roles is optional. so remove if role is not defined.
                 // if defined, check if the current role is in the list.
@@ -688,7 +700,7 @@ class AccessControl {
      *  Documented separately in enums/Action
      *  @private
      */
-    static get Action(): any {
+    static get Action() {
         return Action;
     }
 
@@ -696,7 +708,7 @@ class AccessControl {
      *  Documented separately in enums/Possession
      *  @private
      */
-    static get Possession(): any {
+    static get Possession() {
         return Possession;
     }
 
@@ -704,10 +716,73 @@ class AccessControl {
      *  Documented separately in AccessControlError
      *  @private
      */
-    static get Error(): any {
+    static get Error() {
         return AccessControlError;
     }
 
+    /**
+     *  A utility method for deep cloning the given data object while
+     *  filtering its properties by the given attribute (glob) notations.
+     *  Includes all matched properties and removes the rest.
+     *
+     *  Note that this should be used to manipulate data / arbitrary objects
+     *  with enumerable properties. It will not deal with preserving the
+     *  prototype-chain of the given object.
+     *
+     *  @param {Object} data - A single data objects to be filtered.
+     *  @param {Array|String} attributes - The attribute glob notation(s)
+     *      to be processed. You can use wildcard stars (*) and negate
+     *      the notation by prepending a bang (!). A negated notation
+     *      will be excluded. Order of the globs do not matter, they will
+     *      be logically sorted. Loose globs will be processed first and
+     *      verbose globs or normal notations will be processed last.
+     *      e.g. `[ "car.model", "*", "!car.*" ]`
+     *      will be sorted as:
+     *      `[ "*", "!car.*", "car.model" ]`.
+     *      Passing no parameters or passing an empty string (`""` or `[""]`)
+     *      will empty the source object.
+     *
+     *  @returns {Object} - Returns the filtered data object.
+     *
+     *  @example
+     *  var assets = { notebook: "Mac", car: { brand: "Ford", model: "Mustang", year: 1970, color: "red" } };
+     *
+     *  var filtered = AccessControl.filter(assets, [ "*", "!car.*", "car.model" ]);
+     *  console.log(assets); // { notebook: "Mac", car: { model: "Mustang" } }
+     *
+     *  filtered = AccessControl.filter(assets, "*"); // or AccessControl.filter(assets, ["*"]);
+     *  console.log(assets); // { notebook: "Mac", car: { model: "Mustang" } }
+     *
+     *  filtered = AccessControl.filter(assets); // or AccessControl.filter(assets, "");
+     *  console.log(assets); // {}
+     */
+    static filter<T>(data: T, attributes: string[]): Partial<T>;
+    /**
+     *  A utility method for deep cloning the given data objects while
+     *  filtering its properties by the given attribute (glob) notations.
+     *  Includes all matched properties and removes the rest.
+     *
+     *  Note that this should be used to manipulate data / arbitrary objects
+     *  with enumerable properties. It will not deal with preserving the
+     *  prototype-chain of the given object.
+     *
+     *  @param {Array} data - An array of data objects
+     *      to be filtered.
+     *  @param {Array|String} attributes - The attribute glob notation(s)
+     *      to be processed. You can use wildcard stars (*) and negate
+     *      the notation by prepending a bang (!). A negated notation
+     *      will be excluded. Order of the globs do not matter, they will
+     *      be logically sorted. Loose globs will be processed first and
+     *      verbose globs or normal notations will be processed last.
+     *      e.g. `[ "car.model", "*", "!car.*" ]`
+     *      will be sorted as:
+     *      `[ "*", "!car.*", "car.model" ]`.
+     *      Passing no parameters or passing an empty string (`""` or `[""]`)
+     *      will empty the source object.
+     *
+     *  @returns {Array} - Returns the filtered array of data objects.
+     */
+    static filter<T>(data: T[], attributes: string[]): Partial<T>[];
     // -------------------------------
     //  PUBLIC STATIC METHODS
     // -------------------------------

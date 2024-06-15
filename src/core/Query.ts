@@ -1,6 +1,6 @@
 import { IQueryInfo, Permission, AccessControlError } from '../core';
 import { Action, Possession } from '../enums';
-import { utils } from '../utils';
+import { Grants, utils } from '../utils';
 
 /**
  *  Represents the inner `Query` class that helps build an access information
@@ -25,7 +25,7 @@ class Query {
      *  @protected
      *  @type {Any}
      */
-    protected _grants: any;
+    protected _grants: Grants;
 
     /**
      *  Initializes a new instance of `Query`.
@@ -38,7 +38,7 @@ class Query {
      *         Either a single or array of roles or an
      *         {@link ?api=ac#AccessControl~IQueryInfo|`IQueryInfo` arbitrary object}.
      */
-    constructor(grants: any, roleOrInfo?: string | string[] | IQueryInfo) {
+    constructor(grants: Grants, roleOrInfo?: string | string[] | IQueryInfo) {
         this._grants = grants;
 
         if (typeof roleOrInfo === 'string' || Array.isArray(roleOrInfo)) {
@@ -286,7 +286,7 @@ class Query {
      *  @param {String} [resource]
      *  @returns {Permission}
      */
-    private _getPermission(action: string, possession: string, resource?: string): Permission {
+    private _getPermission(action: Action, possession: Possession, resource?: string): Permission {
         this._.action = action;
         this._.possession = possession;
         if (resource) this._.resource = resource;

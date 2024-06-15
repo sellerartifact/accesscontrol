@@ -40,7 +40,11 @@ class Permission {
     /**
      *  @private
      */
-    private _: any = {};
+    private _: {
+        role?: string | string[];
+        resource?: string;
+        attributes?: string[];
+    } = {};
 
     /**
      *  Initializes a new `Permission` instance.
@@ -71,7 +75,7 @@ class Permission {
      *  @type {Array<String>}
      *  @readonly
      */
-    get roles(): string[] {
+    get roles() {
         return this._.role;
     }
 
@@ -118,6 +122,22 @@ class Permission {
         });
     }
 
+    /**
+     *  Filters the given data object by the permission attributes and returns
+     *  this data with allowed attributes.
+     *
+     *  @param {Object} data Data object to be filtered.
+     *  @returns {Object} The filtered data object.
+     */
+    filter<T>(data: T): Partial<T>;
+    /**
+     *  Filters the given array of objects by the permission attributes and
+     *  returns this data with allowed attributes.
+     *
+     *  @param {Array} data Data objects to be filtered.
+     *  @returns {Array} The filtered data objects.
+     */
+    filter<T>(data: T[]): Partial<T>[];
     /**
      *  Filters the given data object (or array of objects) by the permission
      *  attributes and returns this data with allowed attributes.

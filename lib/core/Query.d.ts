@@ -1,4 +1,5 @@
 import { IQueryInfo, Permission } from '../core';
+import { Grants } from '../utils';
 /**
  *  Represents the inner `Query` class that helps build an access information
  *  for querying and checking permissions, from the underlying grants model.
@@ -20,7 +21,7 @@ declare class Query {
      *  @protected
      *  @type {Any}
      */
-    protected _grants: any;
+    protected _grants: Grants;
     /**
      *  Initializes a new instance of `Query`.
      *  @private
@@ -32,7 +33,7 @@ declare class Query {
      *         Either a single or array of roles or an
      *         {@link ?api=ac#AccessControl~IQueryInfo|`IQueryInfo` arbitrary object}.
      */
-    constructor(grants: any, roleOrInfo?: string | string[] | IQueryInfo);
+    constructor(grants: Grants, roleOrInfo?: string | string[] | IQueryInfo);
     /**
      *  A chainer method that sets the role(s) for this `Query` instance.
      *  @param {String|Array<String>} roles

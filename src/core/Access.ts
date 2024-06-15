@@ -1,7 +1,7 @@
 import { AccessControl } from '../';
 import { IAccessInfo, AccessControlError } from '../core';
 import { Action, Possession, actions, possessions } from '../enums';
-import { utils } from '../utils';
+import { Grants, utils } from '../utils';
 
 /**
  *  Represents the inner `Access` class that helps build an access information
@@ -33,7 +33,7 @@ class Access {
      *  @protected
      *  @type {Any}
      */
-    protected _grants: any;
+    protected _grants: Grants;
 
     /**
      *  Initializes a new instance of `Access`.
@@ -53,7 +53,7 @@ class Access {
      */
     constructor(ac: AccessControl, roleOrInfo?: string | string[] | IAccessInfo, denied: boolean = false) {
         this._ac = ac;
-        this._grants = (ac as any)._grants;
+        this._grants = ac.getGrants();
         this._.denied = denied;
 
         if (typeof roleOrInfo === 'string' || Array.isArray(roleOrInfo)) {
@@ -208,7 +208,7 @@ class Access {
      *  @returns {Access}
      */
     lock(): Access {
-        utils.lockAC(this._ac);
+        this._ac.lock();
         return this;
     }
 
@@ -474,7 +474,7 @@ class Access {
      *  @returns {Access}
      *           Self instance of `Access`.
      */
-    private _prepareAndCommit(action: string, possession: string, resource?: string | string[], attributes?: string | string[]): Access {
+    private _prepareAndCommit(action: Action, possession: Possession, resource?: string | string[], attributes?: string | string[]): Access {
         this._.action = action;
         this._.possession = possession;
         if (resource) this._.resource = resource;

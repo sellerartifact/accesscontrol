@@ -60,7 +60,7 @@ declare class Permission {
      *  @type {Array<String>}
      *  @readonly
      */
-    readonly roles: string[];
+    readonly roles: string | string[];
     /**
      *  Specifies the target resource for which the permission is queried for.
      *
@@ -92,16 +92,20 @@ declare class Permission {
      */
     readonly granted: boolean;
     /**
-     *  Filters the given data object (or array of objects) by the permission
-     *  attributes and returns this data with allowed attributes.
+     *  Filters the given data object by the permission attributes and returns
+     *  this data with allowed attributes.
      *
-     *  @param {Object|Array} data
-     *         Data object to be filtered. Either a single object or array
-     *         of objects.
-     *
-     *  @returns {Object|Array}
-     *           The filtered data object.
+     *  @param {Object} data Data object to be filtered.
+     *  @returns {Object} The filtered data object.
      */
-    filter(data: any): any;
+    filter<T>(data: T): Partial<T>;
+    /**
+     *  Filters the given array of objects by the permission attributes and
+     *  returns this data with allowed attributes.
+     *
+     *  @param {Array} data Data objects to be filtered.
+     *  @returns {Array} The filtered data objects.
+     */
+    filter<T>(data: T[]): Partial<T>[];
 }
 export { Permission };

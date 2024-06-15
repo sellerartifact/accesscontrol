@@ -1,3 +1,4 @@
+import { Action, Possession } from "../enums";
 /**
  *  An interface that defines an access information to be granted or denied.
  *  When you start a method chain with `AccessControl#grant` or `AccessControl#deny`
@@ -30,16 +31,16 @@ interface IAccessInfo {
      *  for possible values.
      *  @type {String}
      */
-    action?: string;
+    action?: Action;
     /**
      *  Defines the possession of the resource(s) for the specified action.
      *  See {@link ?api=ac#AccessControl.Possession|`AccessControl.Possession` enumeration}
      *  for possible values.
      *  @type {String}
      */
-    possession?: string;
+    possession?: Possession;
     /**
-     *  Single or multiple roles for this access information.
+     *  Flag for denied access.
      *  @private
      *  @type {String|Array<String>}
      */

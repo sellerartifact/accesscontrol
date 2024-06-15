@@ -1,5 +1,6 @@
 import { AccessControl } from '../';
 import { IAccessInfo } from '../core';
+import { Grants } from '../utils';
 /**
  *  Represents the inner `Access` class that helps build an access information
  *  to be granted or denied; and finally commits it to the underlying grants
@@ -27,7 +28,7 @@ declare class Access {
      *  @protected
      *  @type {Any}
      */
-    protected _grants: any;
+    protected _grants: Grants;
     /**
      *  Initializes a new instance of `Access`.
      *  @private

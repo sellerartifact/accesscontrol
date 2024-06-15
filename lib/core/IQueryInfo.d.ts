@@ -1,3 +1,4 @@
+import { Action, Possession } from "../enums";
 /**
  *  An interface that defines an access information to be queried.
  *  When you start a method chain with `AccessControl#can` method, you're
@@ -23,13 +24,13 @@ interface IQueryInfo {
      *  for possible values.
      *  @type {String}
      */
-    action?: string;
+    action?: Action;
     /**
      *  Defines the possession of the resource for the specified action.
      *  See {@link ?api=ac#AccessControl.Possession|`AccessControl.Possession` enumeration}
      *  for possible values.
      *  @type {String}
      */
-    possession?: string;
+    possession?: Possession;
 }
 export { IQueryInfo };
