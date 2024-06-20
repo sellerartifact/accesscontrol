@@ -68,7 +68,7 @@ with [**yarn**](https://yarn.pm/@sellerartifact/accesscontrol): `yarn add @selle
 ```js
 const AccessControl = require("@sellerartifact/accesscontrol");
 // or:
-// import { AccessControl } from 'accesscontrol';
+// import { AccessControl } from '@sellerartifact/accesscontrol';
 ```
 
 ### Basic Example
