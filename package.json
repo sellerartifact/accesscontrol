@@ -1,6 +1,6 @@
 {
   "name": "@sellerartifact/accesscontrol",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "Role and Attribute based Access Control for Node.js",
   "main": "./index.js",
   "directories": {
@@ -108,7 +108,7 @@
     "rimraf": "^2.6.3",
     "snyk": "^1.122.0",
     "ts-jest": "^22.0.4",
-    "typescript": "^2.7.2"
+    "typescript": "^5.4.5"
   },
   "dependencies": {
     "notation": "2.0.0"
