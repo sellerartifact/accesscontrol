@@ -99,7 +99,7 @@
   "homepage": "https://github.com/sellerartifact/accesscontrol#readme",
   "devDependencies": {
     "@types/jest": "^22.1.3",
-    "@types/node": "^9.4.6",
+    "@types/node": "^20.0.0",
     "coveralls": "^3.0.0",
     "docma": "^1.5.3",
     "jest-cli": "^22.4.2",
