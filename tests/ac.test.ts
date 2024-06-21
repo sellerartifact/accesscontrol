@@ -1,9 +1,9 @@
 /* eslint-disable max-lines */
-import { AccessControl } from '../src/index';
-import { IQueryInfo, AccessControlError } from '../src/core';
-import { utils, RESERVED_KEYWORDS, Grants } from '../src/utils';
-// test helper
 import { helper } from './helper';
+import { IQueryInfo, AccessControlError } from '@/core/index';
+import { utils, RESERVED_KEYWORDS, Grants } from '@/utils';
+// test helper
+import AccessControl from '@/index';
 
 describe('Test Suite: AccessControl', () => {
   // grant list fetched from DB (to be converted to a valid grants object)
