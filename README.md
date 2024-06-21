@@ -1,23 +1,28 @@
 <h1 align="center">
-    <a href="https://github.com/onury/accesscontrol"><img width="465" height="170" src="https://raw.github.com/onury/accesscontrol/master/ac-logo.png" alt="AccessControl.js" /></a>
+    <a href="https://github.com/sellerartifact/accesscontrol"><img width="465" height="170" src="https://github.com/sellerartifact/accesscontrol/master/ac-logo.png" alt="AccessControl.js" /></a>
 </h1>
 <p align="center">
-    <a href="https://travis-ci.org/onury/accesscontrol"><img src="https://img.shields.io/travis/onury/accesscontrol.svg?branch=master&style=flat-square" alt="Build Status" /></a>
-    <a href="https://coveralls.io/github/onury/accesscontrol?branch=master"><img src="https://img.shields.io/coveralls/github/onury/accesscontrol/master.svg?style=flat-square" alt="Coverage Status" /></a>
-    <a href="https://david-dm.org/onury/accesscontrol"><img src="https://david-dm.org/onury/accesscontrol.svg?style=flat-square" alt="Dependencies" /></a>
-    <a href="https://snyk.io/test/github/onury/accesscontrol"><img src="https://snyk.io/test/github/onury/accesscontrol/badge.svg?style=flat-square" alt="Known Vulnerabilities" /></a>
-    <a href="https://github.com/onury/accesscontrol/graphs/commit-activity"><img src="https://img.shields.io/maintenance/yes/2019.svg?style=flat-square" alt="Maintained" /></a>
+    <a href="https://coveralls.io/github/sellerartifact/accesscontrol?branch=master"><img src="https://img.shields.io/coveralls/github/sellerartifact/accesscontrol/master.svg?style=flat-square" alt="Coverage Status" /></a>
+    <a href="https://david-dm.org/sellerartifact/accesscontrol"><img src="https://david-dm.org/sellerartifact/accesscontrol.svg?style=flat-square" alt="Dependencies" /></a>
+    <a href="https://snyk.io/test/github/sellerartifact/accesscontrol"><img src="https://snyk.io/test/github/sellerartifact/accesscontrol/badge.svg?style=flat-square" alt="Known Vulnerabilities" /></a>
+    <a href="https://github.com/sellerartifact/accesscontrol/graphs/commit-activity"><img src="https://img.shields.io/maintenance/yes/2019.svg?style=flat-square" alt="Maintained" /></a>
     <br />
     <a href="https://www.npmjs.com/package/accesscontrol"><img src="http://img.shields.io/npm/v/accesscontrol.svg?style=flat-square" alt="npm" /></a>
-    <a href="https://github.com/onury/accesscontrol"><img src="https://img.shields.io/github/release/onury/accesscontrol.svg?style=flat-square" alt="Release" /></a>
+    <a href="https://github.com/sellerartifact/accesscontrol"><img src="https://img.shields.io/github/release/sellerartifact/accesscontrol.svg?style=flat-square" alt="Release" /></a>
     <a href="https://www.npmjs.com/package/accesscontrol"><img src="http://img.shields.io/npm/dm/accesscontrol.svg?style=flat-square" alt="Downloads/mo." /></a>
-    <a href="https://github.com/onury/accesscontrol/blob/master/LICENSE"><img src="http://img.shields.io/npm/l/accesscontrol.svg?style=flat-square" alt="License" /></a>
+    <a href="https://github.com/sellerartifact/accesscontrol/blob/master/LICENSE"><img src="http://img.shields.io/npm/l/accesscontrol.svg?style=flat-square" alt="License" /></a>
     <a href="https://www.typescriptlang.org"><img src="https://img.shields.io/badge/written%20in-%20TypeScript%20-6575ff.svg?style=flat-square" alt="TypeScript" /></a>
     <a href="https://onury.io/accesscontrol/?api=ac"><img src="https://img.shields.io/badge/documentation-click_to_read-c27cf4.svg?documentation=click_to_read&style=flat-square" alt="Documentation" /></a>
     <br />
-    <sub>© 2024, Onur Yıldırım (<b><a href="https://github.com/wangjue666">@wangjue666</a></b>).</sub>
+    <sub>© 2024, invalid w (<b><a href="https://github.com/wangjue666">@wangjue666</a></b>).</sub>
 </p>
 <br />
+
+# Why this repo ?
+
+This repo is a fork of the original [accesscontrol](https://github.com/onury/accesscontrol), and the original repo is no longer maintained. I will try to maintain this repo and fix the issues and add new features.
+
+This repo was rebuilt using [modern.js](https://github.com/web-infra-dev/modern.js)
 
 ### Role and Attribute based Access Control for Node.js
 
@@ -35,7 +40,7 @@ With the idea of merging the best features of the two (see this [NIST paper][nis
       <th><a href="#resources-and-resource-attributes">Resources</a></th>
       <th><a href="#checking-permissions-and-filtering-attributes">Permissions</a></th>
       <th><a href="#defining-all-grants-at-once">More</a></th>
-      <th><a href="https://github.com/onury/accesscontrol/blob/master/docs/FAQ.md">F.A.Q.</a></th>
+      <th><a href="https://github.com/sellerartifact/accesscontrol/blob/master/docs/FAQ.md">F.A.Q.</a></th>
       <th><a href="https://onury.io/accesscontrol?api=ac">API Reference</a></th>
     </tr>
   </thead>
@@ -66,7 +71,7 @@ with [**yarn**](https://yarn.pm/@sellerartifact/accesscontrol): `yarn add @selle
 ## Guide
 
 ```js
-const AccessControl = require('@sellerartifact/accesscontrol');
+const { AccessControl } = require('@sellerartifact/accesscontrol');
 // or:
 // import { AccessControl } from '@sellerartifact/accesscontrol';
 ```
@@ -192,7 +197,7 @@ ac.grant('role').readOwn('resource');
 ac.deny('role').deleteAny('resource');
 ```
 
-_Note that **own** requires you to also check for the actual possession. See [this](https://github.com/onury/accesscontrol/issues/14#issuecomment-328316670) for more._
+_Note that **own** requires you to also check for the actual possession. See [this](https://github.com/sellerartifact/accesscontrol/issues/14#issuecomment-328316670) for more._
 
 ## Resources and Resource-Attributes
 
@@ -352,11 +357,12 @@ Travis build should pass, coverage should not degrade.
 
 [**MIT**][license].
 
-[docs]: http://onury.io/accesscontrol/?api=ac
-[faq]: http://onury.io/accesscontrol/?content=faq
+[docs]: https://accesscontrol-psi.vercel.app/?api=ac
+[faq]: https://accesscontrol-psi.vercel.app/?content=faq
 [rbac]: https://en.wikipedia.org/wiki/Role-based_access_control
 [abac]: https://en.wikipedia.org/wiki/Attribute-Based_Access_Control
 [crud]: https://en.wikipedia.org/wiki/Create,_read,_update_and_delete
 [nist-paper]: http://csrc.nist.gov/groups/SNS/rbac/documents/kuhn-coyne-weil-10.pdf
 [changelog]: https://github.com/sellerartifact/accesscontrol/blob/master/CHANGELOG.md
 [license]: https://github.com/sellerartifact/accesscontrol/blob/master/LICENSE
+[modern.js]: https://github.com/web-infra-dev/modern.js/

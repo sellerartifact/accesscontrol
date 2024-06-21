@@ -1,5 +1,12 @@
 ## AccessControl - Change Log
 
+## 2.3.5
+
+### Patch Changes
+
+- chore: update docs
+- 3b5e61a: chore: rm unuse code & replace alias path
+
 ## 2.3.2
 
 ### Patch Changes
