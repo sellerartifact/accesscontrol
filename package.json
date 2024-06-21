@@ -18,7 +18,8 @@
     "gen-release-note": "modern gen-release-note",
     "release": "modern release",
     "new": "modern new",
-    "upgrade": "modern upgrade"
+    "upgrade": "modern upgrade",
+    "test": "modern test"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,mjs,cjs}": [
@@ -32,15 +33,17 @@
   "dependencies": {},
   "peerDependencies": {},
   "devDependencies": {
-    "@modern-js/module-tools": "2.54.0",
-    "@modern-js/eslint-config": "2.54.0",
+    "@modern-js/module-tools": "2.51.0",
+    "@modern-js/eslint-config": "2.51.0",
     "typescript": "~5.0.4",
     "@types/node": "~16.11.7",
     "rimraf": "~3.0.2",
     "lint-staged": "~13.1.0",
     "prettier": "~2.8.1",
     "husky": "~8.0.1",
-    "@modern-js/plugin-rspress": "1.25.0"
+    "@modern-js/plugin-rspress": "1.9.3",
+    "@modern-js/plugin-testing": "2.51.0",
+    "@types/jest": "~29.2.4"
   },
   "sideEffects": [],
   "publishConfig": {
