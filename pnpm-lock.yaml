@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      notation:
+        specifier: ^2.0.0
+        version: 2.0.0
     devDependencies:
       '@modern-js/eslint-config':
         specifier: 2.51.0
@@ -4751,6 +4755,9 @@ packages:
   normalize-path@3.0.0:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
     engines: {node: '>=0.10.0'}
+
+  notation@2.0.0:
+    resolution: {integrity: sha512-7irCcJXENYi2n5PRh/huQvgZ66GMXabtYcOAqSulK/7yAKDa3gNZNDvp4Nydax6Pk1xC9a7UXvkYY9ao3iqb/w==}
 
   npm-run-path@4.0.1:
     resolution: {integrity: sha512-S48WzZW777zhNIrn7gxOlISNAqi9ZC/uQFnRdbeIHhZhCA6UqpkOT8T1G7BvfdgP4Er8gF4sUbaS0i7QvIfCWw==}
@@ -12500,6 +12507,8 @@ snapshots:
       validate-npm-package-license: 3.0.4
 
   normalize-path@3.0.0: {}
+
+  notation@2.0.0: {}
 
   npm-run-path@4.0.1:
     dependencies:
