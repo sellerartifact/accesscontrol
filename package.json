@@ -19,7 +19,8 @@
     "release": "modern release",
     "new": "modern new",
     "upgrade": "modern upgrade",
-    "test": "modern test"
+    "test": "modern test",
+    "docs": "docma -c ./docma.json"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,mjs,cjs}": [
@@ -40,6 +41,7 @@
     "@modern-js/plugin-testing": "2.51.0",
     "@types/jest": "~29.2.4",
     "@types/node": "~16.11.7",
+    "docma": "^3.2.2",
     "husky": "~8.0.1",
     "lint-staged": "~13.1.0",
     "prettier": "~2.8.1",
