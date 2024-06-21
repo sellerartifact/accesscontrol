@@ -1,5 +1,11 @@
 ## AccessControl - Change Log
 
+## 2.3.2
+
+### Patch Changes
+
+- fix: export defaut AccessControl
+
 ## 2.3.1
 
 ### Patch Changes
