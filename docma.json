@@ -92,12 +92,12 @@
                         "label": "Download",
                         "items": [
                             {
-                                "label": "<code>npm i accesscontrol --save</code>",
-                                "href": "https://www.npmjs.com/package/accesscontrol",
+                                "label": "<code>npm i @sellerartifact/accesscontrol --save</code>",
+                                "href": "https://www.npmjs.com/package/@sellerartifact/accesscontrol",
                                 "target": "_blank"
                             },
                             {
-                                "label": "<code>yarn add accesscontrol</code>",
+                                "label": "<code>yarn add @sellerartifact/accesscontrol</code>",
                                 "href": "https://yarn.pm/accesscontrol",
                                 "target": "_blank"
                             },
@@ -106,7 +106,7 @@
                             },
                             {
                                 "label": "Download as Archive",
-                                "href": "https://github.com/onury/accesscontrol/releases",
+                                "href": "https://github.com/sellerartifact/accesscontrol/releases",
                                 "target": "_blank"
                             },
                             {
@@ -121,7 +121,7 @@
                     {
                         "iconClass": "ico-md ico-github",
                         "label": "GitHub",
-                        "href": "https://github.com/onury/accesscontrol",
+                        "href": "https://github.com/sellerartifact/accesscontrol",
                         "target": "_blank"
                     }
                 ]
