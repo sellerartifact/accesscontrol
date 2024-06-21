@@ -43,30 +43,30 @@ With the idea of merging the best features of the two (see this [NIST paper][nis
 
 ## Core Features
 
--   Chainable, friendly API.  
-    e.g. `ac.can(role).create(resource)`
--   Role hierarchical **inheritance**.
--   Define grants **at once** (e.g. from database result) or **one by one**.
--   Grant/deny permissions by attributes defined by **glob notation** (with nested object support).
--   Ability to **filter** data (model) instance by allowed attributes.
--   Ability to control access on **own** or **any** resources.
--   Ability to **lock** underlying grants model.
--   No **silent** errors.
--   **Fast**. (Grants are stored in memory, no database queries.)
--   Brutally **tested**.
--   TypeScript support.
+- Chainable, friendly API.
+  e.g. `ac.can(role).create(resource)`
+- Role hierarchical **inheritance**.
+- Define grants **at once** (e.g. from database result) or **one by one**.
+- Grant/deny permissions by attributes defined by **glob notation** (with nested object support).
+- Ability to **filter** data (model) instance by allowed attributes.
+- Ability to control access on **own** or **any** resources.
+- Ability to **lock** underlying grants model.
+- No **silent** errors.
+- **Fast**. (Grants are stored in memory, no database queries.)
+- Brutally **tested**.
+- TypeScript support.
 
 _In order to build on more solid foundations, this library (v1.5.0+) is completely re-written in TypeScript._
 
 ## Installation
 
-with [**npm**](https://www.npmjs.com/package/@sellerartifact/accesscontrol): `npm i @sellerartifact/accesscontrol --save`  
+with [**npm**](https://www.npmjs.com/package/@sellerartifact/accesscontrol): `npm i @sellerartifact/accesscontrol --save`
 with [**yarn**](https://yarn.pm/@sellerartifact/accesscontrol): `yarn add @sellerartifact/accesscontrol`
 
 ## Guide
 
 ```js
-const AccessControl = require("@sellerartifact/accesscontrol");
+const AccessControl = require('@sellerartifact/accesscontrol');
 // or:
 // import { AccessControl } from '@sellerartifact/accesscontrol';
 ```
@@ -77,20 +77,20 @@ Define roles and grants one by one.
 
 ```js
 const ac = new AccessControl();
-ac.grant("user") // define new or modify existing role. also takes an array.
-    .createOwn("video") // equivalent to .createOwn('video', ['*'])
-    .deleteOwn("video")
-    .readAny("video")
-    .grant("admin") // switch to another role without breaking the chain
-    .extend("user") // inherit role capabilities. also takes an array
-    .updateAny("video", ["title"]) // explicitly defined attributes
-    .deleteAny("video");
+ac.grant('user') // define new or modify existing role. also takes an array.
+  .createOwn('video') // equivalent to .createOwn('video', ['*'])
+  .deleteOwn('video')
+  .readAny('video')
+  .grant('admin') // switch to another role without breaking the chain
+  .extend('user') // inherit role capabilities. also takes an array
+  .updateAny('video', ['title']) // explicitly defined attributes
+  .deleteAny('video');
 
-const permission = ac.can("user").createOwn("video");
+const permission = ac.can('user').createOwn('video');
 console.log(permission.granted); // —> true
 console.log(permission.attributes); // —> ['*'] (all attributes)
 
-permission = ac.can("admin").updateAny("video");
+permission = ac.can('admin').updateAny('video');
 console.log(permission.granted); // —> true
 console.log(permission.attributes); // —> ['title']
 ```
@@ -102,18 +102,18 @@ Check role permissions for the requested resource and action, if granted; respon
 ```js
 const ac = new AccessControl(grants);
 // ...
-router.get("/videos/:title", function (req, res, next) {
-    const permission = ac.can(req.user.role).readAny("video");
-    if (permission.granted) {
-        Video.find(req.params.title, function (err, data) {
-            if (err || !data) return res.status(404).end();
-            // filter data by permission attributes and send.
-            res.json(permission.filter(data));
-        });
-    } else {
-        // resource is forbidden for this user/role
-        res.status(403).end();
-    }
+router.get('/videos/:title', function (req, res, next) {
+  const permission = ac.can(req.user.role).readAny('video');
+  if (permission.granted) {
+    Video.find(req.params.title, function (err, data) {
+      if (err || !data) return res.status(404).end();
+      // filter data by permission attributes and send.
+      res.json(permission.filter(data));
+    });
+  } else {
+    // resource is forbidden for this user/role
+    res.status(403).end();
+  }
 });
 ```
 
@@ -121,40 +121,40 @@ router.get("/videos/:title", function (req, res, next) {
 
 You can create/define roles simply by calling `.grant(<role>)` or `.deny(<role>)` methods on an `AccessControl` instance.
 
--   Roles can extend other roles.
+- Roles can extend other roles.
 
 ```js
 // user role inherits viewer role permissions
-ac.grant("user").extend("viewer");
+ac.grant('user').extend('viewer');
 // admin role inherits both user and editor role permissions
-ac.grant("admin").extend(["user", "editor"]);
+ac.grant('admin').extend(['user', 'editor']);
 // both admin and superadmin roles inherit moderator permissions
-ac.grant(["admin", "superadmin"]).extend("moderator");
+ac.grant(['admin', 'superadmin']).extend('moderator');
 ```
 
--   Inheritance is done by reference, so you can grant resource permissions before or after extending a role.
+- Inheritance is done by reference, so you can grant resource permissions before or after extending a role.
 
 ```js
 // case #1
-ac.grant("admin")
-    .extend("user") // assuming user role already exists
-    .grant("user")
-    .createOwn("video");
+ac.grant('admin')
+  .extend('user') // assuming user role already exists
+  .grant('user')
+  .createOwn('video');
 
 // case #2
-ac.grant("user").createOwn("video").grant("admin").extend("user");
+ac.grant('user').createOwn('video').grant('admin').extend('user');
 
 // below results the same for both cases
-const permission = ac.can("admin").createOwn("video");
+const permission = ac.can('admin').createOwn('video');
 console.log(permission.granted); // true
 ```
 
 Notes on inheritance:
 
--   A role cannot extend itself.
--   Cross-inheritance is not allowed.  
-    e.g. `ac.grant('user').extend('admin').grant('admin').extend('user')` will throw.
--   A role cannot (pre)extend a non-existing role. In other words, you should first create the base role. e.g. `ac.grant('baseRole').grant('role').extend('baseRole')`
+- A role cannot extend itself.
+- Cross-inheritance is not allowed.
+  e.g. `ac.grant('user').extend('admin').grant('admin').extend('user')` will throw.
+- A role cannot (pre)extend a non-existing role. In other words, you should first create the base role. e.g. `ac.grant('baseRole').grant('role').extend('baseRole')`
 
 ## Actions and Action-Attributes
 
@@ -183,13 +183,13 @@ For example, an `admin` role can `create`, `read`, `update` or `delete` (CRUD) *
         <tr>
             <td>Any</td>
             <td>The C|R|U|D action is (or not) to be performed on any resource(s); including own.</td>
-        </tr>   
+        </tr>
     </tbody>
 </table>
 
 ```js
-ac.grant("role").readOwn("resource");
-ac.deny("role").deleteAny("resource");
+ac.grant('role').readOwn('resource');
+ac.deny('role').deleteAny('resource');
 ```
 
 _Note that **own** requires you to also check for the actual possession. See [this](https://github.com/onury/accesscontrol/issues/14#issuecomment-328316670) for more._
@@ -204,7 +204,7 @@ For example, we have a `video` resource that has the following attributes: `id`,
 All attributes of _any_ `video` resource can be read by an `admin` role:
 
 ```js
-ac.grant("admin").readAny("video", ["*"]);
+ac.grant('admin').readAny('video', ['*']);
 // equivalent to:
 // ac.grant('admin').readAny('video');
 ```
@@ -212,7 +212,7 @@ ac.grant("admin").readAny("video", ["*"]);
 But the `id` attribute should not be read by a `user` role.
 
 ```js
-ac.grant("user").readOwn("video", ["*", "!id"]);
+ac.grant('user').readOwn('video', ['*', '!id']);
 // equivalent to:
 // ac.grant('user').readOwn('video', ['title', 'runtime']);
 ```
@@ -220,7 +220,7 @@ ac.grant("user").readOwn("video", ["*", "!id"]);
 You can also use nested objects (attributes).
 
 ```js
-ac.grant("user").readOwn("account", ["*", "!record.id"]);
+ac.grant('user').readOwn('account', ['*', '!record.id']);
 ```
 
 ## Checking Permissions and Filtering Attributes
@@ -228,7 +228,7 @@ ac.grant("user").readOwn("account", ["*", "!record.id"]);
 You can call `.can(<role>).<action>(<resource>)` on an `AccessControl` instance to check for granted permissions for a specific resource and action.
 
 ```js
-const permission = ac.can("user").readOwn("account");
+const permission = ac.can('user').readOwn('account');
 permission.granted; // true
 permission.attributes; // ['*', '!record.id']
 permission.filter(data); // filtered data (without record.id)
@@ -244,22 +244,22 @@ It accepts either an `Object`:
 ```js
 // This is actually how the grants are maintained internally.
 let grantsObject = {
-    admin: {
-        video: {
-            "create:any": ["*", "!views"],
-            "read:any": ["*"],
-            "update:any": ["*", "!views"],
-            "delete:any": ["*"],
-        },
+  admin: {
+    video: {
+      'create:any': ['*', '!views'],
+      'read:any': ['*'],
+      'update:any': ['*', '!views'],
+      'delete:any': ['*'],
     },
-    user: {
-        video: {
-            "create:own": ["*", "!rating", "!views"],
-            "read:own": ["*"],
-            "update:own": ["*", "!rating", "!views"],
-            "delete:own": ["*"],
-        },
+  },
+  user: {
+    video: {
+      'create:own': ['*', '!rating', '!views'],
+      'read:own': ['*'],
+      'update:own': ['*', '!rating', '!views'],
+      'delete:own': ['*'],
     },
+  },
 };
 const ac = new AccessControl(grantsObject);
 ```
@@ -269,35 +269,35 @@ const ac = new AccessControl(grantsObject);
 ```js
 // grant list fetched from DB (to be converted to a valid grants object, internally)
 let grantList = [
-    {
-        role: "admin",
-        resource: "video",
-        action: "create:any",
-        attributes: "*, !views",
-    },
-    { role: "admin", resource: "video", action: "read:any", attributes: "*" },
-    {
-        role: "admin",
-        resource: "video",
-        action: "update:any",
-        attributes: "*, !views",
-    },
-    { role: "admin", resource: "video", action: "delete:any", attributes: "*" },
+  {
+    role: 'admin',
+    resource: 'video',
+    action: 'create:any',
+    attributes: '*, !views',
+  },
+  { role: 'admin', resource: 'video', action: 'read:any', attributes: '*' },
+  {
+    role: 'admin',
+    resource: 'video',
+    action: 'update:any',
+    attributes: '*, !views',
+  },
+  { role: 'admin', resource: 'video', action: 'delete:any', attributes: '*' },
 
-    {
-        role: "user",
-        resource: "video",
-        action: "create:own",
-        attributes: "*, !rating, !views",
-    },
-    { role: "user", resource: "video", action: "read:any", attributes: "*" },
-    {
-        role: "user",
-        resource: "video",
-        action: "update:own",
-        attributes: "*, !rating, !views",
-    },
-    { role: "user", resource: "video", action: "delete:own", attributes: "*" },
+  {
+    role: 'user',
+    resource: 'video',
+    action: 'create:own',
+    attributes: '*, !rating, !views',
+  },
+  { role: 'user', resource: 'video', action: 'read:any', attributes: '*' },
+  {
+    role: 'user',
+    resource: 'video',
+    action: 'update:own',
+    attributes: '*, !rating, !views',
+  },
+  { role: 'user', resource: 'video', action: 'delete:own', attributes: '*' },
 ];
 const ac = new AccessControl(grantList);
 ```
@@ -318,7 +318,7 @@ ac.lock().setGrants({}); // throws after locked
 
 ## Documentation
 
-You can read the full [**API reference**][docs] with lots of details, features and examples.  
+You can read the full [**API reference**][docs] with lots of details, features and examples.
 And more at the [F.A.Q. section][faq].
 
 ## Change-Log
@@ -345,7 +345,7 @@ Add tests to relevant file under [/test](test/) directory and run:
 npm run build && npm run cover
 ```
 
-Use included `tslint.json` and `editorconfig` for style and linting.  
+Use included `tslint.json` and `editorconfig` for style and linting.
 Travis build should pass, coverage should not degrade.
 
 ## License

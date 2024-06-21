@@ -1,12 +1,12 @@
 import { Action } from './Action';
 import { Possession } from './Possession';
 
-const actions: string[] = Object.keys(Action).map((k: string) => Action[k]);
-const possessions: string[] = Object.keys(Possession).map((k: string) => Possession[k]);
+export const actions: string[] = Object.keys(Action).map(
+  (k: string) => Action[k as keyof typeof Action],
+);
+export const possessions: string[] = Object.keys(Possession).map(
+  (k: string) => Possession[k as keyof typeof Possession],
+);
 
-export {
-    Action,
-    actions,
-    Possession,
-    possessions
-};
+export * from './Action';
+export * from './Possession';

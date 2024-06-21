@@ -32,7 +32,7 @@
     "app": {
         "title": "AccessControl",
         "meta": null,
-        "base": "/accesscontrol",
+        "base": "/",
         "entrance": "content:guide",
         "routing": "query",
         "server": "github"
@@ -141,5 +141,5 @@
             "guide": "./README.md"
         }
     ],
-    "dest": "../onury.github.io/accesscontrol"
+    "dest": "./docs-dist"
 }

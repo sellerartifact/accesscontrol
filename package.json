@@ -1,116 +1,62 @@
 {
   "name": "@sellerartifact/accesscontrol",
-  "version": "2.2.3",
-  "description": "Role and Attribute based Access Control for Node.js",
-  "main": "./index.js",
-  "directories": {
-    "lib": "./lib",
-    "test": "./test"
-  },
-  "files": [
-    "index.js",
-    "lib",
-    "LICENSE"
-  ],
-  "types": "./lib/index.d.ts",
-  "scripts": {
-    "vuls": "snyk test",
-    "deps": "npm-check -u && snyk test",
-    "clean": "rimraf ./lib",
-    "build": "npm run clean && mkdirp ./lib && tsc",
-    "test": "npm run build && jest --verbose --no-cache",
-    "test!": "jest --verbose --no-cache",
-    "cover": "npm run build && jest --coverage --verbose --no-cache",
-    "cover!": "jest --coverage --verbose --no-cache",
-    "coveralls": "cat ./test/.coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js -v",
-    "report": "open ./test/.coverage/lcov-report/index.html",
-    "docs": "docma -c ./docma.config.json"
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "roots": [
-      "<rootDir>/src",
-      "<rootDir>/lib",
-      "<rootDir>/test"
-    ],
-    "transform": {
-      "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
-    },
-    "testMatch": [
-      "**/test/(*.)?(spec|test).ts"
-    ],
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "json"
-    ],
-    "testPathIgnorePatterns": [
-      "/backup/",
-      "/.coverage/"
-    ],
-    "collectCoverageFrom": [
-      "src/**/*.ts",
-      "!src/index.ts",
-      "!**/IAccessInfo.ts",
-      "!**/IQueryInfo.ts"
-    ],
-    "coverageDirectory": "./test/.coverage"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sellerartifact/accesscontrol.git"
-  },
-  "keywords": [
-    "access",
-    "access-control",
-    "acl",
-    "role",
-    "attribute",
-    "grant",
-    "deny",
-    "allow",
-    "reject",
-    "permission",
-    "action",
-    "possession",
-    "rbac",
-    "abac",
-    "crud",
-    "create",
-    "read",
-    "update",
-    "delete",
-    "resource",
-    "express",
-    "admin",
-    "user",
-    "glob",
-    "wildcard",
-    "policy",
-    "scope",
-    "context"
-  ],
+  "version": "0.1.0",
+  "types": "./dist/types/index.d.ts",
+  "main": "./dist/lib/index.js",
+  "module": "./dist/es/index.js",
   "author": "wangjue666 <wangjuesix@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/sellerartifact/accesscontrol/issues"
   },
   "homepage": "https://github.com/sellerartifact/accesscontrol#readme",
-  "devDependencies": {
-    "@types/jest": "^29.0.0",
-    "@types/node": "^20.0.0",
-    "coveralls": "^3.0.0",
-    "docma": "^3.0.0",
-    "mkdirp": "^3.0.0",
-    "jest-cli": "^29.0.0",
-    "ncp": "^2.0.0",
-    "rimraf": "^5.0.0",
-    "snyk": "^1.122.0",
-    "ts-jest": "^29.0.0",
-    "typescript": "^5.4.5"
+  "scripts": {
+    "prepare": "modern build && husky install",
+    "dev": "modern dev",
+    "build": "modern build",
+    "build:watch": "modern build -w",
+    "reset": "rimraf ./**/node_modules",
+    "lint": "modern lint",
+    "change": "modern change",
+    "bump": "modern bump",
+    "pre": "modern pre",
+    "change-status": "modern change-status",
+    "gen-release-note": "modern gen-release-note",
+    "release": "modern release",
+    "new": "modern new",
+    "upgrade": "modern upgrade",
+    "test": "modern test",
+    "docs": "docma -c ./docma.json"
   },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,mjs,cjs}": [
+      "node --max_old_space_size=8192 ./node_modules/eslint/bin/eslint.js --fix --color --cache --quiet"
+    ]
+  },
+  "eslintIgnore": [
+    "node_modules/",
+    "dist/"
+  ],
   "dependencies": {
-    "notation": "2.0.0"
+    "notation": "^2.0.0"
+  },
+  "devDependencies": {
+    "@modern-js/eslint-config": "2.51.0",
+    "@modern-js/module-tools": "2.51.0",
+    "@modern-js/plugin-rspress": "1.9.3",
+    "@modern-js/plugin-testing": "2.51.0",
+    "@types/jest": "~29.2.4",
+    "@types/node": "~16.11.7",
+    "docma": "^3.2.2",
+    "husky": "~8.0.1",
+    "lint-staged": "~13.1.0",
+    "prettier": "~2.8.1",
+    "rimraf": "~3.0.2",
+    "typescript": "~5.0.4"
+  },
+  "sideEffects": [],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }
