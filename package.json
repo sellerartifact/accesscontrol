@@ -50,7 +50,7 @@
     "@modern-js/plugin-rspress": "1.9.3",
     "@modern-js/plugin-testing": "2.51.0",
     "@types/jest": "~29.2.4",
-    "@types/node": "~16.11.7",
+    "@types/node": "~16.18.0",
     "docma": "^3.2.2",
     "husky": "~8.0.1",
     "lint-staged": "~13.1.0",
