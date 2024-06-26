@@ -1,18 +1,16 @@
 <h1 align="center">
-    <a href="https://github.com/sellerartifact/accesscontrol"><img width="465" height="170" src="https://github.com/sellerartifact/accesscontrol/master/ac-logo.png" alt="AccessControl.js" /></a>
+    <a href="https://github.com/sellerartifact/accesscontrol"><img width="465" height="170" src="https://camo.githubusercontent.com/b87f2d6e5bff84ae927950f754580cfe3270540e8635aaa0236f4f9c6f369476/68747470733a2f2f7261772e6769746875622e636f6d2f6f6e7572792f616363657373636f6e74726f6c2f6d61737465722f61632d6c6f676f2e706e67" alt="AccessControl.js" /></a>
 </h1>
 <p align="center">
-    <a href="https://coveralls.io/github/sellerartifact/accesscontrol?branch=master"><img src="https://img.shields.io/coveralls/github/sellerartifact/accesscontrol/master.svg?style=flat-square" alt="Coverage Status" /></a>
-    <a href="https://david-dm.org/sellerartifact/accesscontrol"><img src="https://david-dm.org/sellerartifact/accesscontrol.svg?style=flat-square" alt="Dependencies" /></a>
     <a href="https://snyk.io/test/github/sellerartifact/accesscontrol"><img src="https://snyk.io/test/github/sellerartifact/accesscontrol/badge.svg?style=flat-square" alt="Known Vulnerabilities" /></a>
-    <a href="https://github.com/sellerartifact/accesscontrol/graphs/commit-activity"><img src="https://img.shields.io/maintenance/yes/2019.svg?style=flat-square" alt="Maintained" /></a>
+    <a href="https://github.com/sellerartifact/accesscontrol/graphs/commit-activity"><img src="https://img.shields.io/maintenance/yes/2024.svg?style=flat-square" alt="Maintained" /></a>
     <br />
-    <a href="https://www.npmjs.com/package/accesscontrol"><img src="http://img.shields.io/npm/v/accesscontrol.svg?style=flat-square" alt="npm" /></a>
+    <a href="https://www.npmjs.com/package/@sellerartifact/accesscontrol"><img src="http://img.shields.io/npm/v/accesscontrol.svg?style=flat-square" alt="npm" /></a>
     <a href="https://github.com/sellerartifact/accesscontrol"><img src="https://img.shields.io/github/release/sellerartifact/accesscontrol.svg?style=flat-square" alt="Release" /></a>
-    <a href="https://www.npmjs.com/package/accesscontrol"><img src="http://img.shields.io/npm/dm/accesscontrol.svg?style=flat-square" alt="Downloads/mo." /></a>
+    <a href="https://www.npmjs.com/package/@sellerartifact/accesscontrol"><img src="http://img.shields.io/npm/dm/accesscontrol.svg?style=flat-square" alt="Downloads/mo." /></a>
     <a href="https://github.com/sellerartifact/accesscontrol/blob/master/LICENSE"><img src="http://img.shields.io/npm/l/accesscontrol.svg?style=flat-square" alt="License" /></a>
     <a href="https://www.typescriptlang.org"><img src="https://img.shields.io/badge/written%20in-%20TypeScript%20-6575ff.svg?style=flat-square" alt="TypeScript" /></a>
-    <a href="https://onury.io/accesscontrol/?api=ac"><img src="https://img.shields.io/badge/documentation-click_to_read-c27cf4.svg?documentation=click_to_read&style=flat-square" alt="Documentation" /></a>
+    <a href="https://accesscontrol-psi.vercel.app/?api=ac"><img src="https://img.shields.io/badge/documentation-click_to_read-c27cf4.svg?documentation=click_to_read&style=flat-square" alt="Documentation" /></a>
     <br />
     <sub>© 2024, invalid w (<b><a href="https://github.com/wangjue666">@wangjue666</a></b>).</sub>
 </p>
@@ -91,7 +89,7 @@ ac.grant('user') // define new or modify existing role. also takes an array.
   .updateAny('video', ['title']) // explicitly defined attributes
   .deleteAny('video');
 
-const permission = ac.can('user').createOwn('video');
+let permission = ac.can('user').createOwn('video');
 console.log(permission.granted); // —> true
 console.log(permission.attributes); // —> ['*'] (all attributes)
 
@@ -248,7 +246,7 @@ It accepts either an `Object`:
 
 ```js
 // This is actually how the grants are maintained internally.
-let grantsObject = {
+const grantsObject = {
   admin: {
     video: {
       'create:any': ['*', '!views'],
@@ -273,7 +271,7 @@ const ac = new AccessControl(grantsObject);
 
 ```js
 // grant list fetched from DB (to be converted to a valid grants object, internally)
-let grantList = [
+const grantList = [
   {
     role: 'admin',
     resource: 'video',
@@ -347,11 +345,8 @@ npm install
 Add tests to relevant file under [/test](test/) directory and run:
 
 ```sh
-npm run build && npm run cover
+npm run build && npm run test
 ```
-
-Use included `tslint.json` and `editorconfig` for style and linting.
-Travis build should pass, coverage should not degrade.
 
 ## License
 
