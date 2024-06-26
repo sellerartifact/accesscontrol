@@ -1,5 +1,11 @@
 ## AccessControl - Change Log
 
+## 2.3.6
+
+### Patch Changes
+
+- chore: update package.json
+
 ## 2.3.5
 
 ### Patch Changes
