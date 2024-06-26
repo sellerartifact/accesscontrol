@@ -7,7 +7,7 @@
     <br />
     <a href="https://www.npmjs.com/package/@sellerartifact/accesscontrol"><img src="http://img.shields.io/npm/v/accesscontrol.svg?style=flat-square" alt="npm" /></a>
     <a href="https://github.com/sellerartifact/accesscontrol"><img src="https://img.shields.io/github/release/sellerartifact/accesscontrol.svg?style=flat-square" alt="Release" /></a>
-    <a href="https://www.npmjs.com/package/@sellerartifact/accesscontrol"><img src="http://img.shields.io/npm/dm/accesscontrol.svg?style=flat-square" alt="Downloads/mo." /></a>
+    <a href="https://www.npmjs.com/package/@sellerartifact/accesscontrol"><img src="https://img.shields.io/npm/dm/@sellerartifact/accesscontrol.svg?style=flat-square" alt="Downloads/mo." /></a>
     <a href="https://github.com/sellerartifact/accesscontrol/blob/master/LICENSE"><img src="http://img.shields.io/npm/l/accesscontrol.svg?style=flat-square" alt="License" /></a>
     <a href="https://www.typescriptlang.org"><img src="https://img.shields.io/badge/written%20in-%20TypeScript%20-6575ff.svg?style=flat-square" alt="TypeScript" /></a>
     <a href="https://accesscontrol-psi.vercel.app/?api=ac"><img src="https://img.shields.io/badge/documentation-click_to_read-c27cf4.svg?documentation=click_to_read&style=flat-square" alt="Documentation" /></a>
