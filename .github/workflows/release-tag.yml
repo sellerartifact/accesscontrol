@@ -22,4 +22,4 @@ jobs:
         with:
           generateReleaseNotes: 'true'
           body: |
-            > Please refer to [CHANGELOG.md](https://github.com/sellerartifact/accesscontrol/blob/main/CHANGELOG.md) for details.
+            > Please refer to [CHANGELOG.md](https://github.com/sellerartifact/accesscontrol/blob/master/CHANGELOG.md) for details.
