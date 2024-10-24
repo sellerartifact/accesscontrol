@@ -16,8 +16,8 @@ importers:
         specifier: 2.54.0
         version: 2.54.0(@swc/helpers@0.5.3)(typescript@5.0.4)
       '@modern-js/module-tools':
-        specifier: 2.54.0
-        version: 2.54.0(eslint@8.57.0)(typescript@5.0.4)
+        specifier: 2.60.5
+        version: 2.60.5(typescript@5.0.4)
       '@modern-js/plugin-rspress':
         specifier: 1.9.3
         version: 1.9.3(@types/react@18.3.3)(react-router-dom@6.23.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(typescript@5.0.4)(webpack@5.92.1)
@@ -1284,6 +1284,9 @@ packages:
   '@jridgewell/sourcemap-codec@1.4.15':
     resolution: {integrity: sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==}
 
+  '@jridgewell/sourcemap-codec@1.5.0':
+    resolution: {integrity: sha512-gv3ZRaISU3fjPAgNsriBRqGWQL6quFx04YMPW/zD8XMLsU32mhCCbfbO6KZFLjvYpCZ8zyDEgqsgf+PwPaM7GQ==}
+
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
@@ -1354,14 +1357,14 @@ packages:
       zod:
         optional: true
 
-  '@modern-js/core@2.54.0':
-    resolution: {integrity: sha512-WnJTbSiJZHOY+tnB5q+4k7C2G0iTOdEh3B3QKN2+A2VSkF0nOlHM2SFLZavYWrcn5X2pjpaVduj5nXu0SKDxqQ==}
+  '@modern-js/core@2.60.5':
+    resolution: {integrity: sha512-7C0RcMTPYRY7bsmpeu40r3npN7sBcLkhpUUpedm5HTEQ6oomKTUVVQKl+XEaW3zNAzQxN4YMRExhz9hMOJk4Kw==}
 
   '@modern-js/eslint-config@2.54.0':
     resolution: {integrity: sha512-aIcxazuGZtFJ8ORy/pUg72W28rWTW9RNBwAa7O2ZPwak8wfTKIGh7aJL3mFf3CSRK68N05mh1CAKtkOk95uAEA==}
 
-  '@modern-js/module-tools@2.54.0':
-    resolution: {integrity: sha512-v2KDHlwoVHmfQk5VQFM7i7E6YYWAadFEJkld21v6ZqeSOkzhOdkA2oLHSsbXud9KBStBbOlJkoIpgHG64J0c1Q==}
+  '@modern-js/module-tools@2.60.5':
+    resolution: {integrity: sha512-a5rtx2Nn4YhreUvmP7+D7iE86b33zMzliOMTuI/jh8uJ1NBCsisSg1ByS+117ech2TLCkdWNZCb7jkNGGRNzPA==}
     engines: {node: '>=16.0.0'}
     hasBin: true
     peerDependencies:
@@ -1370,22 +1373,14 @@ packages:
       typescript:
         optional: true
 
-  '@modern-js/node-bundle-require@2.54.0':
-    resolution: {integrity: sha512-GYgGyJliefmPiuf6MjR061teBjuTjryFmQgHAVRdGMUVtI1rzQs1KY7FB9xNfeSwfHZB9DC2FZbTtFF4tRnCtA==}
+  '@modern-js/node-bundle-require@2.60.5':
+    resolution: {integrity: sha512-jKFrGm3U4FVTfwR/hYpB8I+veXaLqzQU+6hVfxs4SINRP7CRcvsX0IBOIawx/01aS2u6hNH1Tadb1t++Es1hiA==}
 
-  '@modern-js/plugin-changeset@2.54.0':
-    resolution: {integrity: sha512-Zmxh4OrGRLzkbimt+GdcWlEoHsTmV2AsMGooNYWZOmMbfc2OnK6ZEGSOMWGveWtzEnqMdMcGOLOSureqqqP4kQ==}
+  '@modern-js/plugin-changeset@2.60.5':
+    resolution: {integrity: sha512-z//yRMg9JS9OHFPJ1x4r8UpfBXtK8A/d7rHI7anI03SzhOj+JZuzIR1oNVPV7/66TMlzR8gG0vBIdBh+jAZ+uA==}
 
-  '@modern-js/plugin-i18n@2.54.0':
-    resolution: {integrity: sha512-7byuOAv/npzA7j+CrU3GC1EPyI2hjDjpX44t1kGO8yCQ8Eab4obwqIqG5ORMJ0Sdi73yA2dPrhVItuVnIPP1XA==}
-
-  '@modern-js/plugin-lint@2.54.0':
-    resolution: {integrity: sha512-jqxGvhYQjqeW6DqL1NKTsDPVyUdw/Ce0K3i6EbP/3LqCYziKSo8kXhpoOq0DWl17I4l+n4LGYZqtJ+6/cPGBjg==}
-    peerDependencies:
-      eslint: ^8.28.0
-    peerDependenciesMeta:
-      eslint:
-        optional: true
+  '@modern-js/plugin-i18n@2.60.5':
+    resolution: {integrity: sha512-wjbrJ1V+sUEhJWSeMp20j05QHO7TmBsR4sRH+nN1h1yqRB3nljK2yyvyroHRPiM+xH9x0zJh4sQNVIg6aDa70g==}
 
   '@modern-js/plugin-rspress@1.9.3':
     resolution: {integrity: sha512-/GWnxSzzYTGDLLz+bbNfLRH7eshjhevVIyF9HrbWEzQM2Lyd8D2t898NFWlwoghtxYT8J7Z+21GEYO/9mBDp4Q==}
@@ -1402,6 +1397,9 @@ packages:
 
   '@modern-js/plugin@2.54.0':
     resolution: {integrity: sha512-WPKrUpAzeFvtXCdVSpcly06tWZB5HbbgXJ6mw+IkxEZrEmTBeyxvxiBB7djXO2Za3qeAs6c6qQTAcYnQKJNwWA==}
+
+  '@modern-js/plugin@2.60.5':
+    resolution: {integrity: sha512-izz7iPq9nk4O2VdPm+A6smYPGwd6+OuYxd6njyP6S3Q7AyOqnkUPcGf0mpp2hePaWzLOqZygJSy0Z50/pjGybA==}
 
   '@modern-js/prod-server@2.54.0':
     resolution: {integrity: sha512-dXsaWZqkkoopZJ99nGb9jYRv6MBM1LmJWg2bw67d3RtvZGbEtaxVRcFum36ZrJY0j7vg4uihAOot8NvxuaXuiA==}
@@ -1422,71 +1420,77 @@ packages:
     resolution: {integrity: sha512-2jFsGhCIik0oNNsKIb4DliljLw/LqFBVKs+OZdtNAtkMFTKOpVoBcOJoOyQzaxT23dxhd0ugs8ZPq71ENtNzXQ==}
     engines: {node: '>=16.2.0'}
 
-  '@modern-js/swc-plugins-darwin-arm64@0.6.6':
-    resolution: {integrity: sha512-+Iz8/HkWyG97EcAWWAzSXI0nUAP1LOkuWjx6+anHIEhMW/pO2UowBM73j7FTIzuDgnREcF535v/3FLKzmD0I+w==}
+  '@modern-js/swc-plugins-darwin-arm64@0.6.11':
+    resolution: {integrity: sha512-UMH0bo20vcD10//F7KaINLfuHawQBVcWCCyJvkYOiBt7e1tUjeybKu+y6eNq1USyFVElEMul8ytnYdwAS9sY+w==}
     engines: {node: '>=14.12'}
     cpu: [arm64]
     os: [darwin]
 
-  '@modern-js/swc-plugins-darwin-x64@0.6.6':
-    resolution: {integrity: sha512-1cpmJl47yntCPku3TcO+9OsRo4k6JZncBGdPsGVFrcXWwZDZNz2CqIrjsMuAwEEXzDzGlWdH4iWfFk3oTDCnHw==}
+  '@modern-js/swc-plugins-darwin-x64@0.6.11':
+    resolution: {integrity: sha512-qLcXAnM/IGcZX7B0MvxSdZjvgGofhOtHaEdj8CFkt75CzriBMu7lrGsRP4+paXbFAgM4vp7ZV7julaFrrDCoZw==}
     engines: {node: '>=14.12'}
     cpu: [x64]
     os: [darwin]
 
-  '@modern-js/swc-plugins-linux-arm64-gnu@0.6.6':
-    resolution: {integrity: sha512-MuCLY5SE05i51BvBJtFOk0VT3lhNyK0uKRqybqTBjo7KbaQe0tpIe4/9mKq10C+PkhqgpQVznNIEMaXlkryAYA==}
+  '@modern-js/swc-plugins-linux-arm64-gnu@0.6.11':
+    resolution: {integrity: sha512-3WcTpQqJp7RM/i8lLe+GjOCx17ljKdPbxlIY4LkJe+SQXATd3YducTtNqsEAdBA8Au907rI1ImuhN0kxvR97jQ==}
     engines: {node: '>=14.12'}
     cpu: [arm64]
     os: [linux]
 
-  '@modern-js/swc-plugins-linux-arm64-musl@0.6.6':
-    resolution: {integrity: sha512-ubrQxzfGQslD4L7kgC4be/RwN1QONkqMQCPFQhZOJtTt2yoQci9KH8NLZwBKof5HyuVOO10p9Gx8sgSWaNOUEw==}
+  '@modern-js/swc-plugins-linux-arm64-musl@0.6.11':
+    resolution: {integrity: sha512-RFE3xJWbABM8ZzPMVqlr3qovgnwamgpGjGN15rJ4tVqieO2FORQ14xSQE1ROBun6kIADUD+TxnepTlGb7EJg0w==}
     engines: {node: '>=14.12'}
     cpu: [arm64]
     os: [linux]
 
-  '@modern-js/swc-plugins-linux-x64-gnu@0.6.6':
-    resolution: {integrity: sha512-T++2bVDP6ZlANX8QmQRtDgCsG5nXWq1jIG2otNo3vCY/p3iH4O38wVBI2rnwcUDSgRfSNIeVRTkQEkMsCwKniA==}
+  '@modern-js/swc-plugins-linux-x64-gnu@0.6.11':
+    resolution: {integrity: sha512-vSDF5aznEtnS0kHFm7UXHHaFzEZEyTV+CTQOVEp84hU5+HW1fMR+MFmbeCJnqXpB+R8Kg93SL4KWePGzm2ZNWw==}
     engines: {node: '>=14.12'}
     cpu: [x64]
     os: [linux]
 
-  '@modern-js/swc-plugins-linux-x64-musl@0.6.6':
-    resolution: {integrity: sha512-Iw0GaM+OeNLOpqirsAnKtPbu+QDaMUJoddAC9HUnXori8NDbgslXPmjuz+W+/AxkIfBLygmDlO6THJiaViZgNA==}
+  '@modern-js/swc-plugins-linux-x64-musl@0.6.11':
+    resolution: {integrity: sha512-jfwQeuSmHbgvw9fjFRi5ZkLWejF8WZkYew0MGHqkSyLYZU+p7RgGo+tSpT4CK+b6p9qzh8LxoFpYjx6YycCY/w==}
     engines: {node: '>=14.12'}
     cpu: [x64]
     os: [linux]
 
-  '@modern-js/swc-plugins-win32-arm64-msvc@0.6.6':
-    resolution: {integrity: sha512-fn8/2JirxrxQMzMediFeJq7r65j42+lfgB4AzFiJE1LV8LuEx4m2yiPApRwDuekyLpO+kf8aHAi78Q6VQ/2+vg==}
+  '@modern-js/swc-plugins-win32-arm64-msvc@0.6.11':
+    resolution: {integrity: sha512-MWbuMTdGZ81Xce+OmnM3xsKKQIHmp9Eq0FlueRIPQdSLCO6IogIjALsMum4Vd1tRnEosKXj0xcuD4IsAWgtW6w==}
     engines: {node: '>=14.12'}
     cpu: [arm64]
     os: [win32]
 
-  '@modern-js/swc-plugins-win32-x64-msvc@0.6.6':
-    resolution: {integrity: sha512-5J/QwlJAMpmWGXrX5/7oY2Aeq5EsXMhFwIAxfJIFbUC2ZpeyJnlnxRvWsVuwwGwK3wAEHkOZAX6b4D8fXmsKdw==}
+  '@modern-js/swc-plugins-win32-x64-msvc@0.6.11':
+    resolution: {integrity: sha512-UH4BeAjfs7Z6sZQOaFjgOB9h99qAPRtRFbmkQ+77FDlwNdjii0xPJvdNPCxAJITnqHjHSqrbz9rFDSrWnI9eKg==}
     engines: {node: '>=14.12'}
     cpu: [x64]
     os: [win32]
 
-  '@modern-js/swc-plugins@0.6.6':
-    resolution: {integrity: sha512-/aBu5RnYq5o+93gZohc2Rb0PrbqMXzTnLOTu6Mth9hyR+POGJq2k8eOurSezccjvLNIQbXvgv2KtADOoYSgDxg==}
+  '@modern-js/swc-plugins@0.6.11':
+    resolution: {integrity: sha512-bXwjeFa5mg1hD6zzSHzw94FMNFb9SV458g76zWYfXRw7wMjp97NYl6n3dOTOixdngC0JqZctSbP4mJwSZ0p3Gw==}
     engines: {node: '>=14.17.6'}
     peerDependencies:
-      '@swc/helpers': 0.5.3
-
-  '@modern-js/tsconfig@2.54.0':
-    resolution: {integrity: sha512-imqFQwKjrF343k6eLU8yo+lGYO9PY9X4JxfqZMginE4ntJKZqIpCPLqfVVsSGhglFfktSSge+NjJ8ZkWVUzeDQ==}
+      '@swc/helpers': '>=0.5.3'
+    peerDependenciesMeta:
+      '@swc/helpers':
+        optional: true
 
   '@modern-js/types@2.54.0':
     resolution: {integrity: sha512-ohGVI0AOlcQq1VJO8HSGc4RyOGJgVhQPVYu4Gj9GPgBl26EyAHr5zS6YKnOh9AiogE/lA/f0Ch1YDQObmU4Xhw==}
+
+  '@modern-js/types@2.60.5':
+    resolution: {integrity: sha512-7h05SWzyj+hbRPnxbbXy6/3mFUT5GsQP4PyOMnTNcshqHV8E/jY2F1n0L+YDY9Akml6knAO8Zk2iLAP3KHcw4Q==}
 
   '@modern-js/utils@2.45.0':
     resolution: {integrity: sha512-bsPzQ1B46+gqnQjqvo0BXH7RLTFWCTwQAm1G+ALvGIGdmLvgLWEOEiHtvvSLEDiZCfL4I/jHzn2lk96StMJYIA==}
 
   '@modern-js/utils@2.54.0':
     resolution: {integrity: sha512-i80Hhek2NApugkCX9oMgDFai19nvzYLqxNLFRSM7nGIW3uK1vdqSrHwCPnlcqe0Dm+gOcedoi462BbgfdBagEw==}
+
+  '@modern-js/utils@2.60.5':
+    resolution: {integrity: sha512-ZnQNCs8Vdxji5K6OwSq9QUQ0MYU9QdOpWm7lWwi+YPq2RIQcHfAtnEkFu1B2RvifPyGfjVo2kafu+rldUlZMyw==}
 
   '@module-federation/runtime-tools@0.1.6':
     resolution: {integrity: sha512-7ILVnzMIa0Dlc0Blck5tVZG1tnk1MmLnuZpLOMpbdW+zl+N6wdMjjHMjEZFCUAJh2E5XJ3BREwfX8Ets0nIkLg==}
@@ -1535,6 +1539,7 @@ packages:
 
   '@rsbuild/babel-preset@0.7.9':
     resolution: {integrity: sha512-ArQIwPUTzucn91rBzuyEqur1RLESFN2Qwg9VsmYwwGWXYp8QPx2AG+GVYVnv1g29KvIdiPDACged30kO6lg6oA==}
+    deprecated: deprecated
 
   '@rsbuild/core@0.2.1':
     resolution: {integrity: sha512-e00WhYCtoMEa4CYTmV8jcuya1Irjs2rtRWEa4NJ6YDSm/0JRJCRs4QCPB++zoXnaNCJAknwo7gkwf5M+VOS5yA==}
@@ -1883,6 +1888,9 @@ packages:
 
   '@swc/helpers@0.5.1':
     resolution: {integrity: sha512-sJ902EfIzn1Fa+qYmjdQqh8tPsoxyBz+8yBKC2HKUxyezKJFwPGOn7pv4WY6QuQW//ySQi5lJjA/ZT9sNWWNTg==}
+
+  '@swc/helpers@0.5.13':
+    resolution: {integrity: sha512-UoKGxQ3r5kYI9dALKJapMmuK+1zWM/H17Z1+iwnNmzcJRnfFuevZs375TA5rW31pu4BS4NoSy1fRsexDXfWn5w==}
 
   '@swc/helpers@0.5.3':
     resolution: {integrity: sha512-FaruWX6KdudYloq1AHD/4nU+UsMTdNE8CKyrseXWEcgjDAbvkwJg2QGPAnfIJLIWsjZOSPLOAykK6fuYp4vp4A==}
@@ -2516,8 +2524,8 @@ packages:
   aws4@1.13.0:
     resolution: {integrity: sha512-3AungXC4I8kKsS9PuS4JH2nc+0bVY/mjgrephHTIi8fpEeGsTHBUJeosp0Wc1myYMElmD0B3Oc4XL/HVJ4PV2g==}
 
-  axios@1.7.2:
-    resolution: {integrity: sha512-2A8QhOMrbomlDuiLeK9XibIBzuHeRcqqNOHp0Cyp5EoJ1IFDh+XZH3A6BkXtv0K4gFGCI0Y4BM7B1wOEi0Rmgw==}
+  axios@1.7.7:
+    resolution: {integrity: sha512-S4kL7XrjgBmvdGut0sN3yJxqYzrDOnivkBiN0OFs6hLiUam3UPvswUo0kqGyhqUZGEOytHyumEdXsAkgCOUf3Q==}
 
   babel-jest@29.7.0:
     resolution: {integrity: sha512-BrvGY3xZSwEcCzKvKsCi2GgHqDqsYkOP4/by5xCgIwGXQxIEh+8ew3gmrE1y7XRR6LHZIj6yLYnUi/mm2KXKBg==}
@@ -3547,6 +3555,7 @@ packages:
   eslint@8.57.0:
     resolution: {integrity: sha512-dZ6+mexnaTIbSBZWgou51U6OmzIhYM2VcNdtiTtI7qPNZm35Akpr0f6vtw3w1Kmn5PYo+tZVfh13WrhpS6oLqQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
 
   espree@9.6.1:
@@ -3852,7 +3861,7 @@ packages:
     resolution: {integrity: sha512-oWb1Z6mkHIskLzEJ/XWX0srkpkTQ7vaopMQkyaEIoq0fmtFVxOthb8cCxeT+p3ynTdkk/RZwbgG4brR5BeWECw==}
     engines: {node: '>= 4.0'}
     os: [darwin]
-    deprecated: The v1 package contains DANGEROUS / INSECURE binaries. Upgrade to safe fsevents v2
+    deprecated: Upgrade to fsevents v2 to mitigate potential security issues
 
   fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
@@ -5099,9 +5108,8 @@ packages:
   magic-string@0.30.10:
     resolution: {integrity: sha512-iIRwTIf0QKV3UAnYK4PU8uiEc4SRh5jX0mwpIwETPpHdhVM4f53RSwS/vXvN1JhGX+Cs7B8qIq3d6AH49O5fAQ==}
 
-  magic-string@0.30.5:
-    resolution: {integrity: sha512-7xlpfBaQaP/T6Vh8MO/EqXSW5En6INHEvEXQiuff7Gku0PWjU3uf6w/j9o7O+SpB5fOAkrI5HeoNgwjEO0pFsA==}
-    engines: {node: '>=12'}
+  magic-string@0.30.12:
+    resolution: {integrity: sha512-Ea8I3sQMVXr8JhN4z+H/d8zwo+tYDgHE9+5G4Wnrwhs0gaK9fXTKx0Tw5Xwsd/bCPTTZNRAdpyzvoeORe9LYpw==}
 
   make-dir@2.1.0:
     resolution: {integrity: sha512-LS9X+dc8KLxXCb8dni79fLIIUA5VyZoyjSMCwTluaXA0o27cCK0bhXkpgw+sTXVpPy/lSO57ilRixqk0vDmtRA==}
@@ -5909,8 +5917,8 @@ packages:
     peerDependencies:
       postcss: ^8.1.0
 
-  postcss-modules@4.3.0:
-    resolution: {integrity: sha512-zoUttLDSsbWDinJM9jH37o7hulLRyEgH6fZm2PchxN7AZ8rkdWiALyNhnQ7+jg7cX9f10m6y5VhHsrjO0Mf/DA==}
+  postcss-modules@4.3.1:
+    resolution: {integrity: sha512-ItUhSUxBBdNamkT3KzIZwYNNRFKmkJrofvC2nWab3CPKhYBQ1f27XXh1PAPE27Psx58jeelPsxWB/+og+KEH0Q==}
     peerDependencies:
       postcss: ^8.0.0
 
@@ -6858,11 +6866,6 @@ packages:
         optional: true
       uglify-js:
         optional: true
-
-  terser@5.19.2:
-    resolution: {integrity: sha512-qC5+dmecKJA4cpYxRa5aVkKehYsQKc+AHeKl0Oe62aYjBL8ZA33tTljktDHJSaxxMnbI5ZYw+o/S2DxxLu8OfA==}
-    engines: {node: '>=10'}
-    hasBin: true
 
   terser@5.31.1:
     resolution: {integrity: sha512-37upzU1+viGvuFtBo9NPufCb9dwM0+l9hMxYyWfBA+fbwrPqNJAhbZ6W47bBFnZHKHTUBnMvi87434qq+qnxOg==}
@@ -9058,6 +9061,8 @@ snapshots:
 
   '@jridgewell/sourcemap-codec@1.4.15': {}
 
+  '@jridgewell/sourcemap-codec@1.5.0': {}
+
   '@jridgewell/trace-mapping@0.3.25':
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
@@ -9219,12 +9224,12 @@ snapshots:
     optionalDependencies:
       zod: 3.23.8
 
-  '@modern-js/core@2.54.0':
+  '@modern-js/core@2.60.5':
     dependencies:
-      '@modern-js/node-bundle-require': 2.54.0
-      '@modern-js/plugin': 2.54.0
-      '@modern-js/utils': 2.54.0
-      '@swc/helpers': 0.5.3
+      '@modern-js/node-bundle-require': 2.60.5
+      '@modern-js/plugin': 2.60.5
+      '@modern-js/utils': 2.60.5
+      '@swc/helpers': 0.5.13
 
   '@modern-js/eslint-config@2.54.0(@swc/helpers@0.5.3)(typescript@5.0.4)':
     dependencies:
@@ -9236,75 +9241,63 @@ snapshots:
       - supports-color
       - typescript
 
-  '@modern-js/module-tools@2.54.0(eslint@8.57.0)(typescript@5.0.4)':
+  '@modern-js/module-tools@2.60.5(typescript@5.0.4)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@ast-grep/napi': 0.16.0
       '@babel/core': 7.24.7
       '@babel/types': 7.24.7
-      '@modern-js/core': 2.54.0
-      '@modern-js/plugin': 2.54.0
-      '@modern-js/plugin-changeset': 2.54.0
-      '@modern-js/plugin-i18n': 2.54.0
-      '@modern-js/plugin-lint': 2.54.0(eslint@8.57.0)
-      '@modern-js/swc-plugins': 0.6.6(@swc/helpers@0.5.3)
-      '@modern-js/types': 2.54.0
-      '@modern-js/utils': 2.54.0
+      '@modern-js/core': 2.60.5
+      '@modern-js/plugin': 2.60.5
+      '@modern-js/plugin-changeset': 2.60.5
+      '@modern-js/plugin-i18n': 2.60.5
+      '@modern-js/swc-plugins': 0.6.11(@swc/helpers@0.5.13)
+      '@modern-js/types': 2.60.5
+      '@modern-js/utils': 2.60.5
       '@rollup/pluginutils': 4.1.1
-      '@swc/helpers': 0.5.3
+      '@swc/helpers': 0.5.13
       convert-source-map: 1.8.0
       enhanced-resolve: 5.12.0
       esbuild: 0.19.2
-      magic-string: 0.30.5
+      magic-string: 0.30.12
       postcss: 8.4.38
-      postcss-modules: 4.3.0(postcss@8.4.38)
+      postcss-modules: 4.3.1(postcss@8.4.38)
       safe-identifier: 0.4.2
       source-map: 0.7.4
       style-inject: 0.3.0
       sucrase: 3.29.0
       tapable: 2.2.1
-      terser: 5.19.2
+      terser: 5.31.1
       tsconfig-paths-webpack-plugin: 4.1.0
     optionalDependencies:
       typescript: 5.0.4
     transitivePeerDependencies:
       - debug
-      - eslint
       - supports-color
 
-  '@modern-js/node-bundle-require@2.54.0':
+  '@modern-js/node-bundle-require@2.60.5':
     dependencies:
-      '@modern-js/utils': 2.54.0
-      '@swc/helpers': 0.5.3
+      '@modern-js/utils': 2.60.5
+      '@swc/helpers': 0.5.13
       esbuild: 0.17.19
 
-  '@modern-js/plugin-changeset@2.54.0':
+  '@modern-js/plugin-changeset@2.60.5':
     dependencies:
       '@changesets/cli': 2.27.5
       '@changesets/git': 2.0.0
       '@changesets/read': 0.5.9
-      '@modern-js/plugin-i18n': 2.54.0
-      '@modern-js/utils': 2.54.0
-      '@swc/helpers': 0.5.3
-      axios: 1.7.2
+      '@modern-js/plugin-i18n': 2.60.5
+      '@modern-js/utils': 2.60.5
+      '@swc/helpers': 0.5.13
+      axios: 1.7.7
       resolve-from: 5.0.0
     transitivePeerDependencies:
       - debug
 
-  '@modern-js/plugin-i18n@2.54.0':
+  '@modern-js/plugin-i18n@2.60.5':
     dependencies:
-      '@modern-js/utils': 2.54.0
-      '@swc/helpers': 0.5.3
-
-  '@modern-js/plugin-lint@2.54.0(eslint@8.57.0)':
-    dependencies:
-      '@modern-js/tsconfig': 2.54.0
-      '@modern-js/utils': 2.54.0
-      '@swc/helpers': 0.5.3
-      cross-spawn: 7.0.3
-      husky: 8.0.3
-    optionalDependencies:
-      eslint: 8.57.0
+      '@modern-js/utils': 2.60.5
+      '@swc/helpers': 0.5.13
 
   '@modern-js/plugin-rspress@1.9.3(@types/react@18.3.3)(react-router-dom@6.23.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(typescript@5.0.4)(webpack@5.92.1)':
     dependencies:
@@ -9373,6 +9366,11 @@ snapshots:
       '@modern-js/utils': 2.54.0
       '@swc/helpers': 0.5.3
 
+  '@modern-js/plugin@2.60.5':
+    dependencies:
+      '@modern-js/utils': 2.60.5
+      '@swc/helpers': 0.5.13
+
   '@modern-js/prod-server@2.54.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@modern-js/runtime-utils': 2.54.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -9411,46 +9409,45 @@ snapshots:
       - react
       - react-dom
 
-  '@modern-js/swc-plugins-darwin-arm64@0.6.6':
+  '@modern-js/swc-plugins-darwin-arm64@0.6.11':
     optional: true
 
-  '@modern-js/swc-plugins-darwin-x64@0.6.6':
+  '@modern-js/swc-plugins-darwin-x64@0.6.11':
     optional: true
 
-  '@modern-js/swc-plugins-linux-arm64-gnu@0.6.6':
+  '@modern-js/swc-plugins-linux-arm64-gnu@0.6.11':
     optional: true
 
-  '@modern-js/swc-plugins-linux-arm64-musl@0.6.6':
+  '@modern-js/swc-plugins-linux-arm64-musl@0.6.11':
     optional: true
 
-  '@modern-js/swc-plugins-linux-x64-gnu@0.6.6':
+  '@modern-js/swc-plugins-linux-x64-gnu@0.6.11':
     optional: true
 
-  '@modern-js/swc-plugins-linux-x64-musl@0.6.6':
+  '@modern-js/swc-plugins-linux-x64-musl@0.6.11':
     optional: true
 
-  '@modern-js/swc-plugins-win32-arm64-msvc@0.6.6':
+  '@modern-js/swc-plugins-win32-arm64-msvc@0.6.11':
     optional: true
 
-  '@modern-js/swc-plugins-win32-x64-msvc@0.6.6':
+  '@modern-js/swc-plugins-win32-x64-msvc@0.6.11':
     optional: true
 
-  '@modern-js/swc-plugins@0.6.6(@swc/helpers@0.5.3)':
-    dependencies:
-      '@swc/helpers': 0.5.3
+  '@modern-js/swc-plugins@0.6.11(@swc/helpers@0.5.13)':
     optionalDependencies:
-      '@modern-js/swc-plugins-darwin-arm64': 0.6.6
-      '@modern-js/swc-plugins-darwin-x64': 0.6.6
-      '@modern-js/swc-plugins-linux-arm64-gnu': 0.6.6
-      '@modern-js/swc-plugins-linux-arm64-musl': 0.6.6
-      '@modern-js/swc-plugins-linux-x64-gnu': 0.6.6
-      '@modern-js/swc-plugins-linux-x64-musl': 0.6.6
-      '@modern-js/swc-plugins-win32-arm64-msvc': 0.6.6
-      '@modern-js/swc-plugins-win32-x64-msvc': 0.6.6
-
-  '@modern-js/tsconfig@2.54.0': {}
+      '@modern-js/swc-plugins-darwin-arm64': 0.6.11
+      '@modern-js/swc-plugins-darwin-x64': 0.6.11
+      '@modern-js/swc-plugins-linux-arm64-gnu': 0.6.11
+      '@modern-js/swc-plugins-linux-arm64-musl': 0.6.11
+      '@modern-js/swc-plugins-linux-x64-gnu': 0.6.11
+      '@modern-js/swc-plugins-linux-x64-musl': 0.6.11
+      '@modern-js/swc-plugins-win32-arm64-msvc': 0.6.11
+      '@modern-js/swc-plugins-win32-x64-msvc': 0.6.11
+      '@swc/helpers': 0.5.13
 
   '@modern-js/types@2.54.0': {}
+
+  '@modern-js/types@2.60.5': {}
 
   '@modern-js/utils@2.45.0':
     dependencies:
@@ -9462,6 +9459,13 @@ snapshots:
   '@modern-js/utils@2.54.0':
     dependencies:
       '@swc/helpers': 0.5.3
+      caniuse-lite: 1.0.30001636
+      lodash: 4.17.21
+      rslog: 1.2.2
+
+  '@modern-js/utils@2.60.5':
+    dependencies:
+      '@swc/helpers': 0.5.13
       caniuse-lite: 1.0.30001636
       lodash: 4.17.21
       rslog: 1.2.2
@@ -10013,6 +10017,10 @@ snapshots:
       - typescript
 
   '@swc/helpers@0.5.1':
+    dependencies:
+      tslib: 2.6.3
+
+  '@swc/helpers@0.5.13':
     dependencies:
       tslib: 2.6.3
 
@@ -10761,7 +10769,7 @@ snapshots:
 
   aws4@1.13.0: {}
 
-  axios@1.7.2:
+  axios@1.7.7:
     dependencies:
       follow-redirects: 1.15.6
       form-data: 4.0.0
@@ -14060,9 +14068,9 @@ snapshots:
       '@jridgewell/sourcemap-codec': 1.4.15
     optional: true
 
-  magic-string@0.30.5:
+  magic-string@0.30.12:
     dependencies:
-      '@jridgewell/sourcemap-codec': 1.4.15
+      '@jridgewell/sourcemap-codec': 1.5.0
 
   make-dir@2.1.0:
     dependencies:
@@ -15125,7 +15133,7 @@ snapshots:
       icss-utils: 5.1.0(postcss@8.4.38)
       postcss: 8.4.38
 
-  postcss-modules@4.3.0(postcss@8.4.38):
+  postcss-modules@4.3.1(postcss@8.4.38):
     dependencies:
       generic-names: 4.0.0
       icss-replace-symbols: 1.1.0
@@ -15637,7 +15645,7 @@ snapshots:
       oauth-sign: 0.9.0
       performance-now: 2.1.0
       qs: 6.5.3
-      safe-buffer: 5.1.2
+      safe-buffer: 5.2.1
       tough-cookie: 2.5.0
       tunnel-agent: 0.6.0
       uuid: 3.4.0
@@ -16243,13 +16251,6 @@ snapshots:
       serialize-javascript: 6.0.2
       terser: 5.31.1
       webpack: 5.92.1
-
-  terser@5.19.2:
-    dependencies:
-      '@jridgewell/source-map': 0.3.6
-      acorn: 8.12.0
-      commander: 2.20.3
-      source-map-support: 0.5.21
 
   terser@5.31.1:
     dependencies:
