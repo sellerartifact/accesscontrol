@@ -75,7 +75,7 @@
     "notation": "^2.0.0"
   },
   "devDependencies": {
-    "@modern-js/eslint-config": "2.54.0",
+    "@modern-js/eslint-config": "2.59.0",
     "@modern-js/module-tools": "2.54.0",
     "@modern-js/plugin-rspress": "1.9.3",
     "@modern-js/plugin-testing": "2.54.0",
